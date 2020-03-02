@@ -60,7 +60,7 @@ Resources:
                     apt-get install apache2 -y
                     systemctl start apache2.service
                     cd /var/www/html
-                    aws s3 cp s3://udagram_devin/index.html /var/www/html
+                    aws s3 cp s3://udacitydevin/index.html /var/www/html
             ImageId: ami-0b37e9efc396e4c38  # Ubuntu 18.0.4 LTS, AZ: us-west-2
             # KeyName: UdagrammDevin # SSH Key value
             SecurityGroups:
