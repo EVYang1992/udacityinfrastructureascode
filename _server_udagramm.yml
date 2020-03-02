@@ -54,11 +54,13 @@ Resources:
         Properties:
             UserData:
                 Fn::Base64: !Sub |
-                    yum update -y
-                    yum install -y httpd
-                    systemctl start httpd
-                    systemctl enable httpd
-                    wget -P ../../var/www/html s3://udacityudgramdevin/index.html
+                    #!/bin/bash
+                    apt-get update -y
+                    apt-get install unzip awscli -y
+                    apt-get install apache2 -y
+                    systemctl start apache2.service
+                    cd /var/www/html
+                    aws s3 cp s3://udagram_devin/index.html /var/www/html
             ImageId: ami-0b37e9efc396e4c38  # Ubuntu 18.0.4 LTS, AZ: us-west-2
             # KeyName: UdagrammDevin # SSH Key value
             SecurityGroups:
